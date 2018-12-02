@@ -73,18 +73,22 @@ function concertThis() {
     }
     // Create a request and recieve a response from BandsInTown, supplying an artist and retrieving event information
     bandsInTown.getArtistEventList(artist).then(function (events) {
-        console.log(events);
+        // console.log(events);
         // Create a cariable to hold the event data for the first event
         var jsonData = events[0];
-
-        // Create an array to store the data to be stored in log.txt
-        var concertData = [
-            "Artist: " + artist,
-            "Venue Name: " + jsonData.venue.name,
-            "Venue Location: " + jsonData.formatted_location,
-            "Event Date: " + jsonData.formatted_datetime
-        ].join("\n");
-
+        if (jsonData === undefined) {
+            console.log("There are no upcoming events for "+artist);
+            var concertData = ["There are no upcoming events for "+artist];
+        }
+        else {
+            // Create an array to store the data to be stored in log.txt
+            var concertData = [
+                "Artist: " + artist,
+                "Venue Name: " + jsonData.venue.name,
+                "Venue Location: " + jsonData.formatted_location,
+                "Event Date: " + jsonData.formatted_datetime
+            ].join("\n");
+        }
         // Write Concert Data to terminal window
         console.log(concertData);
 
@@ -177,7 +181,7 @@ function movieThis() {
 
 // This function reads the file random.txt and runs liri.js using the command and search term contained
 function dowhatitsays() {
-    fs.readFile("./random.txt",  "utf8", function read(err, data) {
+    fs.readFile("./random.txt", "utf8", function read(err, data) {
 
         if (err) {
             throw err;
