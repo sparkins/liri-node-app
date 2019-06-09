@@ -19,4 +19,3 @@ To use Liri you would use the command 'node liri.js' followed by the command and
 - 'movie-this:' This command uses the OMDB API to look up details for the requested movie.  It returns data for the first movie, prints it to the terminal window as well as to an external file, log.txt.  If no movie is entered it will print the default, Mr Nobody.
 
 - 'do-what-it-says:' This command reads from an external file, random.txt.  Parses the command (which is spotify-this-song) and the search term.  Then executes the function spotify-this-song, with the search term.
-
