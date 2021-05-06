@@ -26,6 +26,6 @@
     "keys": "^0.1.2",
     "moment": "^2.22.2",
     "node-spotify-api": "^1.0.7",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
